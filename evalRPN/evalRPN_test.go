@@ -8,7 +8,7 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	tests := []core.TestCase[[]string, int]{
+	tests := []core.TC[[]string, int]{
 		{
 			Input:    []string{"2", "1", "+", "3", "*"},
 			Expected: 9,

@@ -8,7 +8,7 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	tests := []core.TestCase[[]int, [][]int]{{
+	tests := []core.TC[[]int, [][]int]{{
 		Input:    []int{-1, 0, 1, 2, -1, -4},
 		Expected: [][]int{{-1, -1, 2}, {-1, 0, 1}},
 	}}

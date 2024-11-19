@@ -8,7 +8,7 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	tests := []core.TestCase[struct {
+	tests := []core.TC[struct {
 		coins  []int
 		amount int
 	}, int]{
