@@ -3,14 +3,13 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         count = [0]*26
+        a = ord('a')
         for c in ransomNote:
-            count[ord(c)] += 1
+            count[ord(c)-a] += 1
         
         for c in magazine:
-            count[ord(c)] -= 1
-        
-        for c in count:
-            if c > 0:
+            count[ord(c)-a] -= 1
+            if count[ord(c)-a] < 0:
                 return False
         
         return True
