@@ -16,3 +16,6 @@ dev = [
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra"
+
+[tool.pyright]
+allowedUntypedLibraries = ["icecream"]

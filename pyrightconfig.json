@@ -1,1 +1,8 @@
-{ "venvPath": ".", "venv": ".venv" }
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "allowedUntypedLibraries": [
+    "icecream"
+  ],
+  "reportUnusedCallResult": false
+}
