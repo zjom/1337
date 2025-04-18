@@ -44,10 +44,43 @@ Observations
 - 0 <= res <= min(len(text1), len(text2))
 - ordering matters
 - can only remove/ skip characters
-- find longest seq where
+
+At every step i,j we can
+- take s[i], s[j]
+- take s[i], skip t[j]
+- skip s[i], take t[j]
+- skip s[i], t[j]
 '''
+
+
+from functools import cache
+from icecream import ic
 
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        #TODO
-        return -1
+        @cache
+        def aux(i:int,j:int)->int:
+            if i == len(text1) or j==len(text2):
+                return 0
+            if text1[i]==text2[j]:
+                return aux(i+1,j+1)+1
+            return max(aux(i,j+1), aux(i+1,j))
+        return aux(0,0)
+
+
+s = Solution()
+text1 = "cat"
+text2 = "crabt" 
+assert ic(s.longestCommonSubsequence(text1,text2)) == 3
+
+text1 = "abcd"
+text2 = "abcd"
+assert ic(s.longestCommonSubsequence(text1,text2)) == 4
+
+text1 = "abcd"
+text2 = "efgh"
+assert ic(s.longestCommonSubsequence(text1,text2)) == 0
+
+text1="bsbininm"
+text2="jmjkbkjkv"
+assert ic(s.longestCommonSubsequence(text1,text2)) == 1 
